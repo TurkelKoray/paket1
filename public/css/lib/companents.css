@@ -1,0 +1,122 @@
+﻿@import url('animate.css'); @import url('hover.css');
+
+.topbar.ifix{
+    position:fixed;
+    z-index:99;
+    width:100%;
+    left:0;
+    top:0;
+}
+
+.inputness ::-webkit-input-placeholder {
+    color:#2e1622;
+}
+.inputness :-moz-placeholder { 
+    color:#2e1622;
+}
+.inputness ::-moz-placeholder {  
+    color:#2e1622;
+}
+.inputness :-ms-input-placeholder {  
+    color:#2e1622;
+}
+
+/*GOOGLE MAPS*/
+
+.mapser{
+    height:100%;
+    position:relative;
+}
+
+.mapopup{
+    position:relative;
+    padding:15px;
+    text-align:left;
+    background-color:#57c5c7;
+    color:#fff;
+    font-size:12px;
+    font-weight:400;
+    max-width:470px;
+    border-bottom:3px solid rgba(0,0,0,0.1);
+
+}
+
+/* white background and box outline */
+.gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div
+{
+    /* we have to use !important because we are overwritng inline styles */
+    background-color: transparent !important;
+    box-shadow: none !important;
+    width: auto !important;
+    height:auto !important;
+}
+
+/* arrow colour */
+.gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div > div > div
+{
+    display:none;
+    background-color: #b5a152!important; 
+    box-shadow: none !important;
+}
+
+/* close button */
+.gm-style > div:first-child > div + div > div:last-child > div > div:last-child
+{
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+/* image icon inside close button */
+.gm-style > div:first-child > div + div > div:last-child > div > div:last-child > img
+{
+    display: none;
+}
+
+/* positioning of infowindow */
+.gm-style-iw
+{
+    top: 60px !important;
+    /*left: -40px !important;*/
+}
+.gm-style-iw div{
+    overflow:hidden;
+}
+
+
+/*POPUP MODAL ADVERT CLASS*/
+.modal-backdrop.in{
+    opacity:0.9!important;
+}
+#ipop .modal-content{
+    background-color:#dee3e3;
+    border:2px solid #fff;
+    border-radius:0!important;
+}
+
+.ipop-close{
+    position:absolute;
+    z-index:9;
+    left:-13px;
+    top:-13px;
+}
+.ipop-close a{
+    display:block;
+    border-radius:50%;
+    width:32px;
+    height:32px;
+    text-align:center;
+    color:#fff;
+    border:3px solid;
+    background-color:#333;
+}
+.ipop-close a:hover{
+    background-color:#000!important;
+    color:#ccc!important;
+}
+.ipop-timer{
+    color:#fff;
+    font-size:14px;
+    font-weight:300;
+    margin:6px 0;
+}
+/*POPUP MODAL ADVERT CLASS*/

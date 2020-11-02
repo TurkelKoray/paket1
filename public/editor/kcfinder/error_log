@@ -1,0 +1,20 @@
+[19-Apr-2019 12:39:52 UTC] PHP Fatal error:  Call to undefined function G_Admin_Control() in /home/yucehab1/public_html/oti/kcfinder/browse.php on line 3
+[19-Apr-2019 12:40:13 UTC] PHP Fatal error:  Call to undefined function G_Admin_Control() in /home/yucehab1/public_html/oti/kcfinder/browse.php on line 3
+[19-Apr-2019 12:40:41 UTC] PHP Warning:  require(../core/setting.php): failed to open stream: No such file or directory in /home/yucehab1/public_html/oti/kcfinder/browse.php on line 2
+[19-Apr-2019 12:40:41 UTC] PHP Warning:  require(../core/setting.php): failed to open stream: No such file or directory in /home/yucehab1/public_html/oti/kcfinder/browse.php on line 2
+[19-Apr-2019 12:40:41 UTC] PHP Fatal error:  require(): Failed opening required '../core/setting.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/yucehab1/public_html/oti/kcfinder/browse.php on line 2
+[19-Apr-2019 12:40:42 UTC] PHP Warning:  require(../core/setting.php): failed to open stream: No such file or directory in /home/yucehab1/public_html/oti/kcfinder/browse.php on line 2
+[19-Apr-2019 12:40:42 UTC] PHP Warning:  require(../core/setting.php): failed to open stream: No such file or directory in /home/yucehab1/public_html/oti/kcfinder/browse.php on line 2
+[19-Apr-2019 12:40:42 UTC] PHP Fatal error:  require(): Failed opening required '../core/setting.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/yucehab1/public_html/oti/kcfinder/browse.php on line 2
+[19-Apr-2019 12:40:42 UTC] PHP Warning:  require(../core/setting.php): failed to open stream: No such file or directory in /home/yucehab1/public_html/oti/kcfinder/browse.php on line 2
+[19-Apr-2019 12:40:42 UTC] PHP Warning:  require(../core/setting.php): failed to open stream: No such file or directory in /home/yucehab1/public_html/oti/kcfinder/browse.php on line 2
+[19-Apr-2019 12:40:42 UTC] PHP Fatal error:  require(): Failed opening required '../core/setting.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/yucehab1/public_html/oti/kcfinder/browse.php on line 2
+[19-Apr-2019 12:40:43 UTC] PHP Warning:  require(../core/setting.php): failed to open stream: No such file or directory in /home/yucehab1/public_html/oti/kcfinder/browse.php on line 2
+[19-Apr-2019 12:40:43 UTC] PHP Warning:  require(../core/setting.php): failed to open stream: No such file or directory in /home/yucehab1/public_html/oti/kcfinder/browse.php on line 2
+[19-Apr-2019 12:40:43 UTC] PHP Fatal error:  require(): Failed opening required '../core/setting.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/yucehab1/public_html/oti/kcfinder/browse.php on line 2
+[19-Apr-2019 12:40:43 UTC] PHP Warning:  require(../core/setting.php): failed to open stream: No such file or directory in /home/yucehab1/public_html/oti/kcfinder/browse.php on line 2
+[19-Apr-2019 12:40:43 UTC] PHP Warning:  require(../core/setting.php): failed to open stream: No such file or directory in /home/yucehab1/public_html/oti/kcfinder/browse.php on line 2
+[19-Apr-2019 12:40:43 UTC] PHP Fatal error:  require(): Failed opening required '../core/setting.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/yucehab1/public_html/oti/kcfinder/browse.php on line 2
+[19-Apr-2019 12:40:43 UTC] PHP Warning:  require(../core/setting.php): failed to open stream: No such file or directory in /home/yucehab1/public_html/oti/kcfinder/browse.php on line 2
+[19-Apr-2019 12:40:43 UTC] PHP Warning:  require(../core/setting.php): failed to open stream: No such file or directory in /home/yucehab1/public_html/oti/kcfinder/browse.php on line 2
+[19-Apr-2019 12:40:43 UTC] PHP Fatal error:  require(): Failed opening required '../core/setting.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/yucehab1/public_html/oti/kcfinder/browse.php on line 2

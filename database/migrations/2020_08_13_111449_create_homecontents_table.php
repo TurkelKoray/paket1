@@ -15,7 +15,7 @@ class CreateHomecontentsTable extends Migration
     {
         Schema::create('homecontents', function (Blueprint $table) {
             $table->id();
-            $table->string("img",200);
+            $table->string("img",200)->nullable();
             $table->string("title",255);
             $table->text("description")->nullable();
             $table->string("url",200)->nullable();

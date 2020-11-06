@@ -20,7 +20,8 @@
                     "string" ,
                 ] ,
                 "img"         => [
-                    "required" ,
+                    "nullable" ,
+                    "present",
                     App::make(ImageExtensions::class)
                 ] ,
                 "url"         => [

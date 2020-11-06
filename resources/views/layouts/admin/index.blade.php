@@ -28,7 +28,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/toastr.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('thema/standart/css/toastr.min.css') }}">
     @yield("css")
 
 
@@ -48,7 +48,7 @@
             </a>
             <span id="sidebar_left_toggle" class="ad ad-lines"></span>
         </div>
-        <ul class="nav navbar-nav navbar-left">
+        <ul class="nav navbar-nav navbar-left none">
             <li class="hidden-xs">
                 <a class="navbar-fullscreen toggle-active" href="#">
                   Site Dili : {{ \Illuminate\Support\Facades\Session::get("lang") }}
@@ -96,25 +96,7 @@
             <ul class="nav sidebar-menu">
                 <li class="sidebar-label pt30">Menu</li>
 
-                <li>
-                    <a class="accordion-toggle" href="#">
-                        <span class="fa fa-share-square-o"></span>
-                        <span class="sidebar-title">DİLLER</span>
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="nav sub-nav">
-                        @foreach($languages as $language)
-                        <li>
-                            <a href='{{ url("admin/lang/$language->lang") }}'>
-                                <span class="glyphicon glyphicon-tags"></span> {{ $language->languages }} </a>
-                        </li>
-                        @endforeach
-                    </ul>
-                </li>
-                @php
-                    $lang = Session::get("lang");
-                if (!empty($lang)) {
-                @endphp
+
                 <li>
                     <a href="{{ asset('/admin/settings/index') }}">
                         <span class="fa fa-cogs"></span>
@@ -137,9 +119,16 @@
                 </li>
 
                 <li>
+                    <a href="{{ asset('/admin/products/index') }}">
+                        <span class="fa fa-files-o"></span>
+                        <span class="sidebar-title">ÜRÜNLER </span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="{{ asset('/admin/homecontent/index') }}">
                         <span class="fa fa-files-o"></span>
-                        <span class="sidebar-title">ANASAYFA İÇERİK</span>
+                        <span class="sidebar-title">BİZDEN HABERLER </span>
                     </a>
                 </li>
 
@@ -165,9 +154,7 @@
                         <span class="sidebar-title">İLETİŞİM</span>
                     </a>
                 </li>
-            @php
-                }
-            @endphp
+
 
                 <!-- -------------- Sidebar Progress Bars -------------- -->
             </ul>
@@ -220,7 +207,7 @@
 <script src="{{ asset('assets/js/main.js') }}"></script>
 <script src="{{ asset('assets/js/demo/widgets_sidebar.js') }}"></script>
 
-<script src="{{ asset('js/toastr.min.js') }}"></script>
+<script src="{{ asset('thema/standart/js/toastr.min.js') }}"></script>
 <script src="{{ asset('editor/ckeditor/ckeditor.js') }}"></script>
 @yield("js")
 

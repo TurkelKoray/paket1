@@ -17,6 +17,7 @@ class CreateGalleriesTable extends Migration
             $table->id();
             $table->tinyInteger("menu_id")->default(0);
             $table->tinyInteger("submenu_id")->default(0);
+            $table->tinyInteger("product_id")->default(0);
             $table->string("img",100);
             $table->string("title",100)->nullable();
             $table->string("description",255)->nullable();

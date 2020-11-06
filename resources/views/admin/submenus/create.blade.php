@@ -73,7 +73,8 @@
                         </div>
 
 
-                        <div class="col-md-6 mb15 ph10 none">
+                        <div class="col-md-12 none mb15 ph10">
+                            <label for="text1" class="field prepend-icon mb5"> Menu Görseli  </label>
                             <label class="field prepend-icon append-button file">
                                 <span class="button btn-primary">Resim Seç</span>
                                 <input type="file" class="gui-file" name="img" id="img" onChange="document.getElementById('uploader1').value = this.value;">
@@ -92,9 +93,8 @@
                         </div>
 
                         <input type="hidden" name="img" value="">
-
-                        <div style="display: none" class="col-md-12 mb15 ph10">
-
+                        <div class="col-md-12 mb15 ph10">
+                            <label for="text1" class="field prepend-icon mb5"> Sayfa Header Görseli <span class="bg-danger"> ( 1600 X 160 boyutları önerilmektedir.) </span>  </label>
                             <label class="field prepend-icon append-button file">
                                 <span class="button btn-primary">Resim Seç</span>
                                 <input type="file" class="gui-file" name="headerimg" id="headerimg" onChange="document.getElementById('uploader2').value = this.value;">
@@ -103,8 +103,8 @@
                                     <i class="fa fa-cloud-upload"></i>
                                 </label>
                             </label>
-
                         </div>
+                        <input type="hidden" name="headerimg" value="">
 
                         <div style="display: none" class="col-md-6 mb15 ph10">
                             <div class="section">

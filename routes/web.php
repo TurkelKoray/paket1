@@ -13,37 +13,26 @@
 	|
 	*/
 
-
-	Route::get('/', 'HomeController@Redirect');
+    Auth::routes();
+	Route::get('/', 'HomeController@homePage');
 	Route::get('/cikis', 'Auth\LoginController@logout');
-	Route::get('/admin', 'Auth\LoginController@showLoginForm');
+	Route::get('/admin', 'Auth\LoginController@showLoginForm')->name('admin');
 	Route::post('/send', 'HomeController@send');                         // Mesaj gönder
 	Route::post('/wesend', 'HomeController@weSend');                         // Mesaj gönder
-	Route::get('/{lang}', 'HomeController@anasayfa');
 
-	Route::get("change/{lang}", "HomeController@changeLanguages");
+    Route::get('/home', 'HomeController@index')->name('home');
 
+    Route::get("/{slug}/{subslug}.html", "HomeController@products");
 
-	Route::group(['prefix' => '{locale}', 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
+    Route::get("/{slug}/{subslug}", "HomeController@subpage");
 
-		Route::get('/admin', 'Auth\LoginController@showLoginForm');
+    Route::get("/{subslug}.htm", "HomeController@contact");
 
-		Route::get('/home', 'HomeController@index')->name('home');
-
-		Route::post('/questionSend', 'HomeController@questionSend');         // Mesaj gönder
-
-		Route::get("/{slug}/{subslug}", "HomeController@subpage");
-
-		Route::get("/{subslug}.htm", "HomeController@contact");
-
-		Route::get("/{slug}", "HomeController@page");
-
-	});
+    Route::get("/{slug}", "HomeController@page");
 
 
 	Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'Admin']], function () {
 
-		Route::get('/lang/{lang}', 'LangController@index');
 
 		Route::get('/slug/{slug}', 'SlugController@slug');
 
@@ -154,7 +143,34 @@
 
 			Route::get('/gallerySil/{id}', 'SubmenuController@gallerySil');
 		});
-		
+
+        Route::group(['prefix' => 'products'], function () {
+
+            Route::get('/create', 'ProductController@create');
+
+            Route::post('/store', 'ProductController@store');
+
+            Route::get('/index', 'ProductController@index');
+
+            Route::get('/edit/{id}', 'ProductController@edit');
+
+            Route::post('/update/{id}', 'ProductController@update');
+
+            Route::get('/delete/{id}', 'ProductController@delete');
+
+            Route::get('/destroy/{id}', 'ProductController@destroy');
+
+            Route::get('/sirala/{p}', 'ProductController@sirala');
+
+            Route::get('/gallery/{id}', 'ProductController@gallery');
+
+            Route::post('/galleryadd/{id}', 'ProductController@galleryadd');
+
+            Route::get('/gallerySirala/{p}', 'ProductController@gallerySirala');
+
+            Route::get('/gallery-delete/{id}', 'ProductController@galleryDelete');
+        });
+
 
 		Route::group(['prefix' => 'sliders'], function () {
 			Route::get('/create', 'SliderController@create');
@@ -206,8 +222,6 @@
 
 	});
 
-	Auth::routes();
 
-	Route::get('/home', 'HomeController@index')->name('home');
 
 

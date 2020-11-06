@@ -42,6 +42,10 @@ class SubMenuPostFormRequest extends AbstractFormRequest
                 "present",
                 App::make(ImageExtensions::class)
             ],
+            "headerimg" => [
+                "present",
+                App::make(ImageExtensions::class)
+            ],
             "breadcrumb" => [
                 "present",
                 Rule::in([0,1])

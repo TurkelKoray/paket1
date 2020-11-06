@@ -15,18 +15,20 @@
             $this->imageService = $imageService;
         }
 
-        public function create($data , $type)
+        public function create($data , $type,$path = "uploads/menu")
         {
 
             foreach($data['img'] as $imgItem){
 
-                $imgName = $this->imageService->singleImageUpload("uploads/menu",$imgItem);
+                $imgName = $this->imageService->singleImageUpload($path,$imgItem,400);
                 $createData = [
                     "img"   => $imgName ,
                     "title" => $data["title"] ,
                 ];
                 if($type == 1){
                     $createData["menu_id"] = $data['id'];
+                }elseif ($type == 2){
+                    $createData["product_id"] = $data['id'];
                 }else{
                     $createData["submenu_id"] = $data['id'];
                 }

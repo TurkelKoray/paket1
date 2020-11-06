@@ -29,7 +29,7 @@
                             <td>{{ $menu->slug }}</td>
                             <td>
                                 @php
-                                    $subMenuPermissions = ["hbs","hs"];
+                                    $subMenuPermissions = ["hbs","hs","us"];
                                     $gallleryMenuPermissions = [ ];
                                 @endphp
                                 @if(in_array($menu->type,$subMenuPermissions) )

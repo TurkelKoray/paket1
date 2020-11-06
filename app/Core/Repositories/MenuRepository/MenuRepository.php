@@ -19,14 +19,13 @@ class MenuRepository extends AbstractRepository implements RepositoryInterface
 
     public function getMenus()
     {
-        $lang = Session::get("lang");
-        $result = $this->getQueryInstance()->where("lang",$lang)->orderBy("sira","asc")->get();
+        $result = $this->getQueryInstance()->orderBy("sira","asc")->get();
         return $result ? $result : null;
     }
 
-	public function getFrontMenus($lang)
+	public function getFrontMenus()
 	{
-		$result = $this->getQueryInstance()->where("lang",$lang)->orderBy("sira","asc")->get()->load("submenus");
+		$result = $this->getQueryInstance()->orderBy("sira","asc")->get()->load("submenus");
 		return $result ? $result : null;
 	}
 
@@ -36,10 +35,10 @@ class MenuRepository extends AbstractRepository implements RepositoryInterface
 		return $result ? $result : null;
 	}
 
-	public function getBottomMenu($lang,$order = 0)
+	public function getBottomMenu()
 	{
-		$result = $this->getQueryInstance()->where([ [ "lang" , $lang] , ["sira" , $order] ])->first();
-		return $result ? $result : null;
+        $result = $this->getQueryInstance()->whereIn("type", ["hs","us"])->orderBy("sira","asc")->limit(3)->get()->load("submenus");
+        return $result ? $result : null;
 	}
 
     public function getFindById($id)

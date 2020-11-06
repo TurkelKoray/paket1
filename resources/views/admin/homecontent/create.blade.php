@@ -1,5 +1,10 @@
 @extends('layouts.admin.index')
 
+
+@section("css")
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/allcp/forms/css/forms.css') }}">
+@endsection
+
 @section('content')
 
     <div class="panel-heading">
@@ -116,13 +121,11 @@
 @endsection
 
 @section('js')
-
-
     <script type="text/javascript">
 
-        $("input[name=name]").on("keyup" , function () {
+        $("input[name=title]").on("keyup" , function () {
 
-            var   slug = $("input[name=name]").val();
+            var   slug = $("input[name=title]").val();
 
             $.ajax({
                 type:'get',
@@ -130,19 +133,22 @@
                 data:slug,
                 success:
                 function(cevap){
-                    $("input[name=slug]").val(cevap);
+                    $("input[name=url]").val(cevap);
                 }
             });
 
-
-
         });
+
+        $("#form").submit(function (e) {
+
+            e.preventDefault();
+            // $("#file").remove();
+            var inputCreate = "<input type='hidden' name='img' value=''>";
+            $("#form").append(inputCreate);
+            this.submit();
+        })
 
     </script>
 
 @endsection
 
-@section('css')
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/allcp/forms/css/forms.css') }}">
-
-@endsection

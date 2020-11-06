@@ -81,3 +81,53 @@ function slugUrlToId($id)
     return $id;
 }
 
+function TrToDateConvert($date){
+    $ingilizce = array(
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'Jun',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday'
+    );
+
+    $turkce = array(
+        'Ocak',
+        'Şubat',
+        'Mart',
+        'Nisan',
+        'Mayıs',
+        'Haziran',
+        'Temmuz',
+        'Ağustos',
+        'Eylül',
+        'Ekim',
+        'Kasım',
+        'Aralık',
+        'Pazartesi',
+        'Salı',
+        'Çarşamba',
+        'Perşembe',
+        'Cuma',
+        'Cumartesi',
+        'Pazar'
+
+    );
+
+   return  str_replace($ingilizce,$turkce,$date);
+
+}
+

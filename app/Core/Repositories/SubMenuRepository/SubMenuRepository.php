@@ -21,15 +21,15 @@ class SubMenuRepository extends AbstractRepository implements RepositoryInterfac
         return $result;
     }
 
-	public function homeBottomSubmenus($lang,$menuId)
+	public function homeBottomSubmenus($menuId)
 	{
-		$result = $this->getQueryInstance()->where([ [ "lang" , $lang ] , [ "menu_id" ,$menuId ] ])->get();
+		$result = $this->getQueryInstance()->where([  [ "menu_id" ,$menuId ] ])->get();
 		return $result ? $result : null;
     }
 
-	public function getSubmenuValue($lang,$slug)
+	public function getSubmenuValue($slug)
 	{
-		$result = $this->getQueryInstance()->where([ [ "lang" , $lang ] , [ "slug" ,$slug ] ])->first();
+		$result = $this->getQueryInstance()->where([  [ "slug" ,$slug ] ])->first();
 		return $result ? $result : null;
 	}
 
@@ -37,5 +37,10 @@ class SubMenuRepository extends AbstractRepository implements RepositoryInterfac
     {
         $result = $this->getQueryInstance()->find($id);
         return $result ? $result : null;
+    }
+
+    public function homeProducts()
+    {
+        return $this->getQueryInstance()->where("type","us")->get();
     }
 }

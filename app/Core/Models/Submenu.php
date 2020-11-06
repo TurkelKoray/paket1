@@ -23,4 +23,9 @@ class Submenu extends BaseModel
     {
         return $this->hasMany('App\Core\Models\Subsubmenu','submenu_id','id')->orderBy('sira','asc');
     }
+
+    public function categoryProducts()
+    {
+        return $this->hasMany(Product::class,'category_id','id');
+    }
 }

@@ -8,6 +8,7 @@
           "img",
           "menu_id",
           "submenu_id",
+          "product_id",
           "title",
           "description",
           "orders",

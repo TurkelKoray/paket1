@@ -189,7 +189,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="footer-logo">
-                        <a href="#" class="pusher"><img src="images/footer-logo.png" /></a>
+                        <a href="#" class="pusher"><img src="{{ asset("thema/standart/images/footer-logo.png") }}" /></a>
                     </div>
                 </div>
             </div>

@@ -100,7 +100,7 @@
                 <li>
                     <a href="{{ asset('/admin/settings/index') }}">
                         <span class="fa fa-cogs"></span>
-                        <span class="sidebar-title">SİTE AYARLARI</span>
+                        <span class="sidebar-title">AYARLAR</span>
                     </a>
                 </li>
 
@@ -151,7 +151,7 @@
                 <li>
                     <a href="/admin/contact/index">
                         <span class="fa fa-database"></span>
-                        <span class="sidebar-title">İLETİŞİM</span>
+                        <span class="sidebar-title">MESAJLAR</span>
                     </a>
                 </li>
 

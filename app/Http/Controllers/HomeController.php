@@ -63,12 +63,12 @@
             return view('thema.standart.products', compact("menu", "submenu", "products", "slug","allCategoryProducts","productSlugName"));
         }
 
-        public function contact($lang, $slug)
+        public function contact($slug)
         {
-            $menus = $this->menuRepository->getFrontMenus($lang);
             $menu  = $this->menuRepository->getMenuValue("slug", $slug);
             $cevap = "";
-            return view('contact', compact("menus", 'menu', "lang", "slug"))->with('cevap', $cevap);
+            $allCategoryProducts = $this->subMenuRepository->homeProducts();
+            return view('thema.standart.contact', compact('menu', "slug","allCategoryProducts"))->with('cevap', $cevap);
         }
 
         public function send(ContactPostRequest $contactPostRequest, ContactService $contactService)
@@ -78,7 +78,7 @@
             $ip              = $contactPostRequest->ip();
             $inputData["ip"] = $ip;
             $contactService->messageSend($inputData);
-            return redirect()->back()->with("res", "Mesajınız iletilmiştir");
+            return $this->response("<h3 style='text-align: center'>Mesajınız iletilmiştir</h3>");
 
         }
 

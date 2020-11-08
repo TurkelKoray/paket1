@@ -12,7 +12,7 @@ $(document).ready(function () {
 function manuelFuncs() {
     $("a").attr("ontouchstart", "true");
     responsiveHeighter();
-    addActive(); 
+    addActive();
     addActive(".side-menu > ul > li", 0, ".side-menu"); addActive(".itab", 0, ".itabs", 1);
     focusZoom();
     $("body").prepend('<div class="iwrapper"></div>');
@@ -291,7 +291,7 @@ var ipop = {
     }
 }
 function addLocation(x, y, locs, title, html, icon) {
-    icon = icon ? icon : 'images/map-icon.png'; locs = locs ? locs : locsA; html = html ? html : "";
+    icon = icon ? icon : 'thema/standart/images/map-icon.png'; locs = locs ? locs : locsA; html = html ? html : "";
     if (html) { html = "<div class='mapopup'>" + html + "</div>"; }
     locs.push({
         lat: x,
@@ -304,7 +304,7 @@ function addLocation(x, y, locs, title, html, icon) {
 }
 function mapser(id, locs, zoom) {
     id = id ? id : "mapser"; locs = locs ? locs : locsA; zoom = zoom ? zoom : 16;
-    // harita stili 
+    // harita stili
     var styles = {
         'Gece': [{
             featureType: 'all',

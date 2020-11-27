@@ -19,10 +19,14 @@
 	Route::get('/admin', 'Auth\LoginController@showLoginForm')->name('admin');
 	Route::post('/send', 'HomeController@send');                         // Mesaj gönder
 	Route::post('/wesend', 'HomeController@weSend');                         // Mesaj gönder
+    Route::post("get-order","HomeController@getOrder");
 
     Route::get('/home', 'HomeController@index')->name('home');
 
-    Route::get("/{slug}/{subslug}.html", "HomeController@products");
+    Route::get("/{slug}/{subslug}&sayfa={page}", "HomeController@products");
+
+    Route::get("/{slug}/{subslug}/{productslug}.html", "HomeController@productDetail");
+
 
     Route::get("/{slug}/{subslug}", "HomeController@subpage");
 

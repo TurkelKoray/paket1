@@ -18,4 +18,9 @@
             $result = $this->getQueryInstance()->where($attribute,$value)->orderBy("orders", "asc")->get();
             return $result ? $result : null;
         }
+
+        public function productGalleries($productId)
+        {
+            return $this->getQueryInstance()->where("product_id",$productId)->limit(10)->get();
+        }
     }

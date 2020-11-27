@@ -58,19 +58,7 @@
                             @endif
                         </div>
 
-                        <div class="col-md-6 mb15 ph10">
-                            <label for="title" class="field prepend-icon mb5"> Başlık </label>
-                            <input name="title" type="text" class="gui-input form-control" value="{{ $product["title"] }}" placeholder="Başlık">
-                            @if($errors->has("title"))
-                                <div style="margin-top: 5px" class="col-lg-12">
-                                    <div class="alert alert-micro alert-warning alert-dismissable">
-                                        {{ $errors->first("title") }}
-                                    </div>
-                                </div>
-                            @endif
-                        </div>
-
-                        <div class="col-md-4 mb15 ph10">
+                        <div class="col-md-8 mb15 ph10">
                             <label for="price" class="field prepend-icon mb5"> Ürün Fiyatı </label>
                             <input name="price" type="text" class="gui-input form-control" value="{{ $product["price"] }}" placeholder="Fiyat">
                             @if($errors->has("price"))
@@ -82,13 +70,25 @@
                             @endif
                         </div>
 
-                        <div class="col-md-2 mb15 ph10">
+                        <div class="col-md-4 mb15 ph10">
                             <label for="stock" class="field prepend-icon mb5"> Stok Adeti </label>
                             <input name="stock" type="text" class="gui-input form-control" value="{{ $product["stock"] }}" placeholder="Stok Adeti">
                             @if($errors->has("stock"))
                                 <div style="margin-top: 5px" class="col-lg-12">
                                     <div class="alert alert-micro alert-warning alert-dismissable">
                                         {{ $errors->first("stock") }}
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+
+                        <div  class="col-md-12 mb15 ph10">
+                            <label for="description" class="field prepend-icon mb5"> Ürün Başlığı </label>
+                            <textarea class="gui-textarea form-control ckeditor" id="title" name="title" placeholder="Ürün Başlığı">{{ $product["title"] }}</textarea>
+                            @if($errors->has("title"))
+                                <div style="margin-top: 5px" class="col-lg-12">
+                                    <div class="alert alert-micro alert-warning alert-dismissable">
+                                        {{ $errors->first("title") }}
                                     </div>
                                 </div>
                             @endif

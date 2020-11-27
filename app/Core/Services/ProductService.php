@@ -5,6 +5,7 @@
 
 
     use App\Core\Models\Product;
+    use Illuminate\Support\Str;
 
     class ProductService
     {
@@ -21,10 +22,7 @@
         public
         function create(array $data)
         {
-            if (!empty($data["img"])) {
-                $imgName           = $this->imageService->singleImageUpload("uploads/products", $data["img"], 600, 400);
-                $createData["img"] = $imgName;
-            }
+
 
             $createData = [
                 "name"        => $data["name"],
@@ -37,6 +35,11 @@
                 "stock"       => $data["stock"]
             ];
 
+            if (!empty($data["img"])) {
+                $imgName           = $this->imageService->singleImageUpload("uploads/products", $data["img"], 600, 400);
+                $createData["img"] = $imgName;
+            }
+
             $this->product->newModelQuery()->create($createData);
         }
 
@@ -45,7 +48,7 @@
             $product                = $this->product->newModelQuery()->find($id);
             $product['name']        = $data["name"];
             $product['category_id'] = $data["category_id"];
-            $product['slug']        = $data["slug"];
+            $product['slug']        = Str::slug($data["slug"]);
             $product['title']       = $data["title"];
             $product['description'] = $data["description"];
             $product['content']     = $data["content"];

@@ -33,7 +33,7 @@
         <div class="container">
             <div class="top-links">
                 <div class="top-contact">
-                    <a href="{{ url("/") }}">
+                    <a href="tel:{{ $settings->phone }}">
                         <img src="{{ asset("thema/standart/images/customer.png") }}" />
                         <span class="vmiddle m-5 ml">{{ $settings->phone }}</span>
                     </a>
@@ -63,7 +63,7 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs" aria-expanded="false">
                     <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand logo" href="#"><img src="{{ asset("thema/standart/images/logo.png") }}" class="img-responsive" /></a>
+                <a class="navbar-brand logo" href="{{ url("/") }}"><img src="{{ asset("thema/standart/images/logo.png") }}" class="img-responsive" /></a>
             </div>
             <div class="collapse navbar-collapse" id="bs">
                 <ul class="nav navbar-nav navbar-right">
@@ -88,7 +88,7 @@
                                             if($menu->type=="hs"){ $sublink = $menu->slug."/".$submenu->slug; }
                                             elseif ($menu->type=="hbs"){ $sublink = $menu->slug."/".$submenu->slug."/".$menu->id."/1"; }
                                             elseif ($menu->type=="is"){ $sublink = $menu->slug."/".$submenu->slug.".htm"; }
-                                            elseif ($menu->type=="us"){ $sublink = $menu->slug."/".$submenu->slug.".html"; }
+                                            elseif ($menu->type=="us"){ $sublink = $menu->slug."/".$submenu->slug."&sayfa=1"; }
                                             elseif ($menu->type=="fs"){ $sublink = "firmalar/".$menu->slug."/".$submenu->slug; }
                                             else{ $sublink = $menu->slug."/".$submenu->slug; }
                                         @endphp
@@ -189,7 +189,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="footer-logo">
-                        <a href="#" class="pusher"><img src="{{ asset("thema/standart/images/footer-logo.png") }}" /></a>
+                        <a href="{{ url("/") }}" class="pusher"><img src="{{ asset("thema/standart/images/footer-logo.png") }}" /></a>
                     </div>
                 </div>
             </div>

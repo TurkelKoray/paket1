@@ -19,7 +19,7 @@
                                 <label class="field select">
                                     <select id="category_id" name="category_id">
                                         @foreach($categoryProducts as $categoryProduct)
-                                            <option  value="{{ $categoryProduct->id }}">{{ $categoryProduct->name }}</option>
+                                            <option  value="{{ $categoryProduct->id }}">{{ $categoryProduct->menu->name }} - {{ $categoryProduct->name }} </option>
                                         @endforeach
                                     </select>
                                     <i class="arrow"></i>

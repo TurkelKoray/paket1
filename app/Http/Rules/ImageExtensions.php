@@ -13,7 +13,7 @@ class ImageExtensions implements Rule
     public function passes($attribute, $value)
     {
 
-        $allowedExtensions = ["png", "jpeg", "jpg", "gif"];
+        $allowedExtensions = ["png", "jpeg", "jpg","JPG", "gif"];
         if (!empty(Str::lower($value))) {
 
             $extension = $value->getClientOriginalExtension();

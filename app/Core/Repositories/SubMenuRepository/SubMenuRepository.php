@@ -41,6 +41,6 @@ class SubMenuRepository extends AbstractRepository implements RepositoryInterfac
 
     public function homeProducts()
     {
-        return $this->getQueryInstance()->where("type","us")->get();
+        return $this->getQueryInstance()->where("type","us")->limit(6)->get();
     }
 }

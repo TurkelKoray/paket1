@@ -1,6 +1,19 @@
 @extends("layouts.paket1")
 
 @section("metatag")
+    <title> {{ $menu->name }} -  {{ $settings->title }} </title>
+    <meta name="description" content="{!! $settings->description !!} " />
+    <meta name="keywords" content="{{ $menu->name }} , {{ $settings->keywords }}" />
+    <meta itemprop="name" content="{{ url()->full() }}" />
+    <link rel="canonical" href="" />
+    <meta property="og:url" content="{{ url()->full() }}" />
+    <meta itemprop="identifier" name="articleid" content="" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ url()->full() }}" />
+    <meta property="og:title" content="{!! $settings->title !!}" />
+    <meta property="og:site_name" content="{{ url()->full() }}" />
+    <meta property="og:description" content="{!! $settings->description !!}" />
+    <meta property="og:image" content="{{ asset("uploads/".$settings->ogimages) }}" />
 @endsection
 
 @section("head")
@@ -169,7 +182,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key={{ $settings->mapskey }}"></script> <!--&key=KEY_GİRMEYİ_UNUTMAYINIZ!!!-->
     <script src="{{ asset("thema/standart/js/maplace.min.js") }}"></script>
     <script>
-        addLocation(36.206260, 36.157459);
+        addLocation(36.206260, 36.157459,'','sadekod');
         mapser();
     </script>
 @endsection

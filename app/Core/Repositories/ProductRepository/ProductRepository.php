@@ -21,8 +21,29 @@
             return $this->getQueryInstance()->get();
         }
 
-        public function getCategoryProducts($categoryId)
+        public function getCategoryProducts($categoryId,$offset,$limit)
         {
-            return $this->getQueryInstance()->where("category_id",$categoryId)->get();
+            return $this->getQueryInstance()->where("category_id",$categoryId)->offset($offset)->limit($limit)->get();
         }
+
+        public function getTotalCategoryProductsCount($categoryId)
+        {
+            return $this->getQueryInstance()->where("category_id",$categoryId)->count();
+        }
+
+        public function homeShowProducts()
+        {
+            return $this->getQueryInstance()->where("state",1)->limit(12)->get();
+        }
+
+        public function product($productSlug)
+        {
+            return $this->getQueryInstance()->where("slug",$productSlug)->first();
+        }
+
+        public function otherProducts($categoryId)
+        {
+            return $this->getQueryInstance()->where("category_id",$categoryId)->limit(6)->get();
+        }
+
     }

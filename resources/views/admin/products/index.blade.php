@@ -13,6 +13,7 @@
                     <thead>
                     <tr>
                         <th>#</th>
+                        <th>Görsel </th>
                         <th>Ürün Adı</th>
                         <th>Ürün Başlık </th>
                         <th class="text-center" colspan="4"> İşlem </th>
@@ -25,6 +26,7 @@
                     @foreach($products as $product)
                     <tr  id="item-{{$product->id}}">
                         <td>{{ $i }}</td>
+                        <td> <img width="75" src="{{ asset("uploads/products/".$product->img) }}" /> </td>
                         <td class="sirala handle">{{ $product->name }}</td>
                         <td>
                             {{ $product->title }}

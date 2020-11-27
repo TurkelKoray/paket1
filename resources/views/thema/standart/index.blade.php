@@ -1,6 +1,19 @@
 @extends("layouts.paket1")
 
 @section("metatag")
+    <title>  {{ $settings->title }} </title>
+    <meta name="description" content="{!! $settings->description !!} " />
+    <meta name="keywords" content="{{ $settings->keywords }}" />
+    <meta itemprop="name" content="{{ url()->full() }}" />
+    <link rel="canonical" href="" />
+    <meta property="og:url" content="{{ url()->full() }}" />
+    <meta itemprop="identifier" name="articleid" content="" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ url()->full() }}" />
+    <meta property="og:title" content="{!! $settings->title !!}" />
+    <meta property="og:site_name" content="{{ url()->full() }}" />
+    <meta property="og:description" content="{!! $settings->description !!}" />
+    <meta property="og:image" content="{{ asset("uploads/".$settings->ogimages) }}" />
 @endsection
 
 @section("head")
@@ -41,17 +54,34 @@
     <div class="container">
         <div class="row">
             <div class="home-boxes">
-                @foreach($products as $product)
-                    <div class="col-md-4 col-sm-6">
-                        <div class="home-box hvr-shadow-radial hvr-shrink">
-                            <a href="#" class="home-box-link"><img src="{{ asset("uploads/submenu/".$product->img) }}" class="img-responsive btn-block" /></a>
-                            <div class="home-box-text">
-                                <a href="#">{{ $product->name }}</a>
-                                {{ $product->title }}
+
+                    @foreach($homeShowProducts as $homeShowProduct)
+                        @if(!empty($homeShowProduct->img))
+                            <div class="col-md-4 col-sm-6">
+                                <div class="home-box hvr-shadow-radial hvr-shrink">
+                                    <a href="{{ asset($homeShowProduct->productCategory->menu->slug."/".$homeShowProduct->productCategory->slug."/".$homeShowProduct->slug.".html") }}" class="home-box-link"><img src="{{ asset("uploads/products/".$homeShowProduct->img) }}" class="img-responsive btn-block" /></a>
+                                    <div class="home-box-text">
+                                        <a href="{{ asset($homeShowProduct->productCategory->menu->slug."/".$homeShowProduct->productCategory->slug."/".$homeShowProduct->slug.".html") }}">{{ $homeShowProduct->name }}</a>
+                                        {{ $homeShowProduct->title }}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                @endforeach
+                        @endif
+                    @endforeach
+
+                        @foreach($products as $product)
+                            @if(!empty($product->img))
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="home-box hvr-shadow-radial hvr-shrink">
+                                        <a href="{{ asset($product->menu->slug."/".$product->slug."/sayfa=1") }}" class="home-box-link"><img src="{{ asset("uploads/submenu/".$product->img) }}" class="img-responsive btn-block" /></a>
+                                        <div class="home-box-text">
+                                            <a href="{{ asset($product->menu->slug."/".$product->slug."/sayfa=1") }}">{{ $product->name }}</a>
+                                            {{ $product->title }}
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
                 <div class="clearfix"></div>
             </div>
             <div class="about-us">

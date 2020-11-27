@@ -3,6 +3,7 @@
 
     use App\Core\Models\Menus;
     use Illuminate\Support\Facades\Session;
+    use Illuminate\Support\Str;
 
     class MenuService
     {
@@ -35,7 +36,7 @@
         {
             $menu               = $this->menus->newModelQuery()->find($id);
             $menu['name']       = $data["name"];
-            $menu['slug']       = $data["slug"];
+            $menu['slug']       = Str::slug($data["slug"]);
             $menu['title']      = $data["title"];
             $menu['text1']      = $data["text1"];
             $menu['text2']      = $data["text2"];

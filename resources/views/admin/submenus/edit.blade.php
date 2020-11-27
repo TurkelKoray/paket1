@@ -83,7 +83,7 @@
                         </div>
 
 
-                        <div class="col-md-12 none mb15 ph10">
+                        <div class="col-md-12  mb15 ph10">
                             <label for="text1" class="field prepend-icon mb5"> Menu Görseli  </label>
                             <label class="field prepend-icon append-button file">
                                 <span class="button btn-primary">Resim Seç</span>

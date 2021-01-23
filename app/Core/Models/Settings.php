@@ -10,7 +10,7 @@ class Settings extends Model
 
     protected $fillable = [
         'email', 'phone','gsm', 'fax','headcode', 'bodycode','address', 'footer','mapskey', 'googleCode','longitude', 'latitude','title', 'slogan',
-        'description','keywords', 'facebook','twitter', 'pinteres','googleplus', 'hostname','username','design','linkedin','ogimages','instagram','youtube'
+        'description','keywords', 'facebook','twitter', 'pinteres', 'hostname','username','design','linkedin','ogimages','instagram','youtube'
     ];
 
     protected $hidden = [

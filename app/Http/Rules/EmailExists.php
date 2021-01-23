@@ -20,9 +20,10 @@ class EmailExists implements Rule
     public function passes($attribute, $value)
     {
         $userRepository = App::make(AdminRepository::class);
-        $result = $userRepository->getEmailExists($value);
+        //$result = $userRepository->getEmailExists($value);
+        $result = $userRepository->getByFindId($value);
 
-        if ($result){
+        if (!$result){
             return true;
         }
 

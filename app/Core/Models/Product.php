@@ -16,6 +16,6 @@
 
         public function productCategory()
         {
-            return $this->hasOne(Submenu::class,"id","category_id");
+            return $this->hasOne(Submenu::class,"id","category_id")->where("deleted",0);
         }
 	}

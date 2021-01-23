@@ -15,7 +15,7 @@
 
         public function getHomeContents()
         {
-            $result = $this->getQueryInstance()->orderBy("orders","asc")->get();
+            $result = $this->getQueryInstance()->orderBy("orders","asc")->limit(10)->get();
             return $result;
         }
 
@@ -23,6 +23,11 @@
         {
             $result = $this->getQueryInstance()->where("type",$type)->orderBy("orders","asc")->get();
             return $result;
+        }
+
+        public function newsDetail($url)
+        {
+            return $this->getQueryInstance()->where("url",$url)->first();
         }
 
     }

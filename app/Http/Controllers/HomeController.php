@@ -47,14 +47,21 @@
         public function page($slug)
         {
             $menu = $this->menuRepository->getMenuValue("slug" , $slug);
-            return view('thema.standart.page' , compact("menus" , 'lang' , "menu" , "slug"));
+            if(empty($menu)){
+                return redirect("/");
+            }
+            $allCategoryProducts = $this->subMenuRepository->homeProducts();
+            return view('thema.standart.page' , compact(   "menu" , "slug","allCategoryProducts"));
         }
 
-        public function subpage($slug , $subslug)
+        public function newsDetail($slug, HomeContentRepository $homeContentRepository)
         {
-            $menu    = $this->menuRepository->getMenuValue("slug" , $slug);
-            $submenu = $this->subMenuRepository->getSubmenuValue($subslug);
-            return view('subpage' , compact("menus" , 'lang' , "menu" , "submenu" , "slug"));
+            $menu    = $homeContentRepository->newsDetail( $slug);
+            if(empty($menu)){
+                return redirect("/");
+            }
+            $allCategoryProducts = $this->subMenuRepository->homeProducts();
+            return view('thema.standart.news-detail' , compact(    "menu" , "allCategoryProducts" , "slug"));
         }
 
         public function products($slug , $subslug , int $page = 1 , ProductRepository $productRepository , PaginationCalculate $paginationCalculate)
@@ -78,6 +85,9 @@
             if($next > $totalPages){
                 $next = $totalPages;
             }
+            if(empty($menu) || empty($submenu) || empty($products)){
+                return redirect("/");
+            }
             return view('thema.standart.products' , compact("menu" , "submenu" , "products" , "slug" , "allCategoryProducts" , "productSlugName" , "previous" , "next" , "totalPages" , "page"));
         }
 
@@ -90,7 +100,9 @@
             $allCategoryProducts = $this->subMenuRepository->homeProducts();
             $productGalleries    = $galleryRepository->productGalleries($product->id);
             $otherProducts       = $productRepository->otherProducts($product->category_id);
-
+            if(empty($menu) || empty($submenu) || empty($product)){
+                return redirect("/");
+            }
             return view('thema.standart.product-detail' , compact("menu" , "submenu" , "slug" , 'product' , "allCategoryProducts" , "productSlugName" , "productGalleries" , "otherProducts"));
         }
 
@@ -98,8 +110,9 @@
         {
             $menu                = $this->menuRepository->getMenuValue("slug" , $slug);
             $cevap               = "";
+            $submenu               = "";
             $allCategoryProducts = $this->subMenuRepository->homeProducts();
-            return view('thema.standart.contact' , compact('menu' , "slug" , "allCategoryProducts"))->with('cevap' , $cevap);
+            return view('thema.standart.contact' , compact('menu' , "slug" , "allCategoryProducts","submenu"))->with('cevap' , $cevap);
         }
 
         public function getOrder(Request $orderPostFormRequest , OrderService $orderService)

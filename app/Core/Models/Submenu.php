@@ -26,6 +26,6 @@ class Submenu extends BaseModel
 
     public function categoryProducts()
     {
-        return $this->hasMany(Product::class,'category_id','id');
+        return $this->hasMany(Product::class,'category_id','id')->where("deleted",0);
     }
 }

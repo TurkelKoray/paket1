@@ -4,7 +4,7 @@
 
     <div class="panel" id="spy3">
         <div class="panel-heading">
-            <span class="panel-title">Anasayfa İçerikler</span>
+            <span class="panel-title">Bizden Haberler </span>
 
         </div>
         <div class="panel-body pn">
@@ -15,7 +15,6 @@
                         <th>#</th>
                         <th>Başlık</th>
                         <th>Url</th>
-                        <th>Tipi</th>
                         <th class="text-center" colspan="5"> İşlem</th>
                     </tr>
                     </thead>
@@ -28,7 +27,6 @@
                             <td>{{ $i }}</td>
                             <td class="menuSirala handle">{{ $homeContent->title }}</td>
                             <td>{{ $homeContent->url }}</td>
-                            <td>@if($homeContent->type==0) İkili @else Üçlü @endif</td>
                             <td><a class="btn btn-primary" href="/admin/homecontent/edit/{{ $homeContent->id }}"> Düzenle </a></td>
                             <td><a class="btn btn-danger sil" id="{{$homeContent->id}}" href="#">SİL</a></td>
                         </tr>
@@ -55,18 +53,7 @@
 @endsection
 
 @section('topbar')
-    <header id="topbar" class="ph10">
-        <div class="topbar-left">
-            <ul class="nav nav-list nav-list-topbar pull-left">
-                <li class="active">
-                    <a href="/admin/homecontent/index">Anasayfa İçerik Listesi</a>
-                </li>
-                <li>
-                    <a href="/admin/homecontent/create">Yeni Anasayfa İçerik</a>
-                </li>
-            </ul>
-        </div>
-    </header>
+    @include("admin.homecontent.topbarmenu")
 @endsection
 
 @section('js')

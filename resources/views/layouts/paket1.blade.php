@@ -51,8 +51,10 @@
                 </div>
 
                 <div class="top-search" data-focus-in="1">
-                    <input type="text" data-focus="1" class="form-control top-input" placeholder="Ara">
+                    <form method="get" action="{{ url("ara") }}">
+                    <input type="text" data-focus="1" name="q" class="form-control top-input" placeholder="Ara">
                     <button class="btn-search anim" type="submit"><i class="fa fa-search"></i></button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -63,7 +65,7 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs" aria-expanded="false">
                     <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand logo" href="{{ url("/") }}"><img src="{{ asset("thema/standart/images/logo.png") }}" class="img-responsive" /></a>
+                <a class="navbar-brand logo" href="{{ url("/") }}"><img src="{{ asset("uploads/".$settings->logo) }}" class="img-responsive" /></a>
             </div>
             <div class="collapse navbar-collapse" id="bs">
                 <ul class="nav navbar-nav navbar-right">
@@ -189,7 +191,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="footer-logo">
-                        <a href="{{ url("/") }}" class="pusher"><img src="{{ asset("thema/standart/images/footer-logo.png") }}" /></a>
+                        <a href="{{ url("/") }}" class="pusher"><img src="{{ asset("uploads/".$settings->logo) }}" /></a>
                     </div>
                 </div>
             </div>

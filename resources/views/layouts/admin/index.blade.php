@@ -9,7 +9,7 @@
     <meta name="description" content="Alliance - A Responsive HTML5 Admin UI Framework">
     <meta name="author" content="ThemeREX">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- -------------- Fonts -------------- -->
     <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic' rel='stylesheet'
@@ -34,7 +34,7 @@
 
 </head>
 
-<body data-status="{{Session::get("durum")}}" class="basic-gallery">
+<body data-status="{{Session::get("durum")}}" data-action="{{ Session::get("position") }}" class="basic-gallery">
 
 
 <!-- -------------- Body Wrap  -------------- -->
@@ -122,6 +122,13 @@
                     <a href="{{ asset('/admin/products/index') }}">
                         <span class="fa fa-files-o"></span>
                         <span class="sidebar-title">ÜRÜNLER </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ asset('/admin/orders/index') }}">
+                        <span class="fa fa-files-o"></span>
+                        <span class="sidebar-title">SİPARİŞLER </span>
                     </a>
                 </li>
 
@@ -215,13 +222,14 @@
 
     $(function(){
 
+        var position = $("body").data("action");
 
         toastr.options = {
             "closeButton": true,
             "debug": false,
             "newestOnTop": false,
             "progressBar": false,
-            "positionClass": "toast-bottom-right",
+            "positionClass": position,
             "preventDuplicates": false,
             "onclick": null,
             "showDuration": "100",
@@ -235,6 +243,7 @@
         }
 
         var durum = parseInt($("body").data("status"));
+
 
         switch (durum)
         {
@@ -268,6 +277,9 @@
                 break;
             case 9 :
                 toastr.info('Lütfen dosya seçiniz');
+                break;
+            case 100 :
+                toastr.warning('Demo Sürümünde Değişiklik Yapamazsınız');
                 break;
 
 

@@ -1,13 +1,17 @@
 <?php
     namespace App\Core\Models;
 
-    use Illuminate\Database\Eloquent\Model;
 
-    class Orders extends Model
+    class Orders extends BaseModel
     {
         protected $table = "orders";
 
         protected $fillable = ["product_id","name","email","phone","address","state","deleted"];
 
         public $timestamps = true;
+
+        public function product()
+        {
+            return $this->belongsTo(Product::class,"product_id","id");
+        }
     }

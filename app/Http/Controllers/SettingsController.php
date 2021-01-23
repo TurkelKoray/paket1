@@ -5,6 +5,7 @@
     use App\Core\Services\ImageService;
     use App\Core\Services\SettingService;
     use App\Http\FormRequest\EmailSettingPutFormRequest;
+    use App\Http\FormRequest\LogoPutFormRequest;
     use App\Http\FormRequest\MapsPutFormRequest;
     use App\Http\FormRequest\OgImagesPutFormRequest;
     use App\Http\FormRequest\SeoPutFormRequest;
@@ -54,7 +55,7 @@
             return view("admin.settings.ogimages" , compact('contacts'));
         }
 
-        public function update(SettingsPutFormRequest $settingsPutFormRequest,SettingService $settingService)
+        public function update(SettingsPutFormRequest $settingsPutFormRequest , SettingService $settingService)
         {
             $inputData = $settingsPutFormRequest->toArray();
             $settingService->update($inputData);
@@ -62,7 +63,7 @@
             return redirect()->back();
         }
 
-        public function mapsupdate(MapsPutFormRequest $mapsPutFormRequest,SettingService $settingService)
+        public function mapsupdate(MapsPutFormRequest $mapsPutFormRequest , SettingService $settingService)
         {
             $inputData = $mapsPutFormRequest->toArray();
             try{
@@ -75,7 +76,7 @@
             return redirect()->back();
         }
 
-        public function seoupdate(SeoPutFormRequest $seoPutFormRequest,SettingService $settingService)
+        public function seoupdate(SeoPutFormRequest $seoPutFormRequest , SettingService $settingService)
         {
             $inputData = $seoPutFormRequest->toArray();
             try{
@@ -88,7 +89,7 @@
             return redirect()->back();
         }
 
-        public function emailsettingsupdate(EmailSettingPutFormRequest $emailSettingPutFormRequest,SettingService $settingService)
+        public function emailsettingsupdate(EmailSettingPutFormRequest $emailSettingPutFormRequest , SettingService $settingService)
         {
             $inputData = $emailSettingPutFormRequest->toArray();
             try{
@@ -101,7 +102,7 @@
             return redirect()->back();
         }
 
-        public function socialmediaupdate(SocialMediaPutRequest $socialMediaPutRequest,SettingService $settingService)
+        public function socialmediaupdate(SocialMediaPutRequest $socialMediaPutRequest , SettingService $settingService)
         {
 
             $inputData = $socialMediaPutRequest->toArray();
@@ -115,22 +116,40 @@
             return redirect()->back();
         }
 
-        public function ogimagesupdate(OgImagesPutFormRequest $ogImagesPutFormRequest,SettingService $settingService,ImageService $imageService,SettingRepository $settingRepository)
+        public function ogimagesupdate(OgImagesPutFormRequest $ogImagesPutFormRequest , SettingService $settingService , ImageService $imageService , SettingRepository $settingRepository)
         {
             $inputData = $ogImagesPutFormRequest->toArray();
-
-            $imgName = $imageService->singleImageUpload("uploads",$inputData["img"]);
+            $imgName               = $imageService->singleImageUpload("uploads" , $inputData["img"]);
             $inputData["ogimages"] = $imgName;
-            $oldOgImage = $settingRepository->getOgImage();
-            if($oldOgImage->ogimages != "" && file_exists("uploads/".$oldOgImage->ogimages) == true){
-               // unlink(public_path() . "/uploads/" . $oldOgImage->ogimages);
-                unlink( public_path() . "/uploads/" . $oldOgImage->ogimages);
+            $oldOgImage            = $settingRepository->getOgImage();
+            if($oldOgImage->ogimages != "" && file_exists("uploads/" . $oldOgImage->ogimages) == true){
+                // unlink(public_path() . "/uploads/" . $oldOgImage->ogimages);
+                unlink(public_path() . "/uploads/" . $oldOgImage->ogimages);
             }
             $settingService->ogImageUpdate($inputData);
-
             Session::flash("durum" , self::SUCCESS);
             return redirect()->back();
+        }
 
+        public function logo(SettingRepository $settingRepository)
+        {
+            $settings = $settingRepository->getSettingAll();
+            return view("admin.settings.logo" , compact('settings'));
+        }
+
+        public function logoupdate(LogoPutFormRequest $logoPutFormRequest, SettingService $settingService , ImageService $imageService , SettingRepository $settingRepository)
+        {
+            $inputData = $logoPutFormRequest->toArray();
+            $imgName               = $imageService->singleImageUpload("uploads" , $inputData["img"],220,50);
+            $inputData["logo"] = $imgName;
+            $oldLogo            = $settingRepository->getOgImage();
+            if($oldLogo->logo != "" && file_exists("uploads/" . $oldLogo->logo) == true){
+                // unlink(public_path() . "/uploads/" . $oldOgImage->ogimages);
+                unlink(public_path() . "/uploads/" . $oldLogo->logo);
+            }
+            $settingService->logoUpdate($inputData);
+            Session::flash("durum" , self::SUCCESS);
+            return redirect()->back();
         }
 
     }

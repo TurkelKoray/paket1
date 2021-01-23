@@ -19,7 +19,7 @@
                                 <label class="field select">
                                     <select id="category_id" name="category_id">
                                         @foreach($categoryProducts as $categoryProduct)
-                                            <option  value="{{ $categoryProduct->id }}">{{ $categoryProduct->menu->name }} - {{ $categoryProduct->name }} </option>
+                                            <option  value="{{ $categoryProduct->id }}"> {{ $categoryProduct->name }} </option>
                                         @endforeach
                                     </select>
                                     <i class="arrow"></i>
@@ -63,7 +63,7 @@
                             @endif
                         </div>
 
-                        <div class="col-md-4 mb15 ph10">
+                        <div class="col-md-2 mb15 ph10">
                             <label for="price" class="field prepend-icon mb5"> Ürün Fiyatı </label>
                             <input name="price" type="text" class="gui-input form-control" value="{{ old("price") }}" placeholder="Fiyat">
                             @if($errors->has("price"))
@@ -85,6 +85,15 @@
                                     </div>
                                 </div>
                             @endif
+                        </div>
+
+                        <div class="col-md-2 mb15 ph10">
+                            <label for="stock" class="field prepend-icon mb5"> Anasayfada Göster</label>
+                            <div class="checkbox-custom fill checkbox-primary mb5">
+                                <input type="hidden" name="headline" value="0">
+                                <input type="checkbox" name="state"  id="state"  value="1">
+                                <label for="state"> </label>
+                            </div>
                         </div>
 
                         <div  class="col-md-12 mb15 ph10">

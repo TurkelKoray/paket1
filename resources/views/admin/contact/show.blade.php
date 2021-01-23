@@ -27,6 +27,11 @@
                         </div>
 
                         <div class="col-md-4 mb15 ph10">
+                            <label for="subject" class="field prepend-icon mb5"> Konu  </label>
+                            <input name="subject" type="text" class="gui-input form-control" value="{{ $contact->subject }}">
+                        </div>
+
+                        <div class="col-md-4 none mb15 ph10">
                             <label for="gsm" class="field prepend-icon mb5"> Gsm  </label>
                             <input name="gsm" type="text" class="gui-input form-control" value="{{ $contact->gsm }}">
                         </div>
@@ -41,10 +46,7 @@
                             <input name="tarih" type="text" class="gui-input form-control" value="{{ $contact->created_at->format('d/m/Y') }} - {{ $contact->created_at->format('H:i') }}">
                         </div>
 
-                        <div class="col-md-12 mb15 ph10">
-                            <label for="subject" class="field prepend-icon mb5"> Konu  </label>
-                            <input name="subject" type="text" class="gui-input form-control" value="{{ $contact->subject }}">
-                        </div>
+
 
                         <div class="col-md-12 mb15 ph10">
                             <label for="message" class="field prepend-icon mb5"> Mesaj </label>

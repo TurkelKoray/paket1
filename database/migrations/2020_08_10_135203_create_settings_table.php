@@ -29,15 +29,17 @@ class CreateSettingsTable extends Migration
 			$table->string("longitude",255)->nullable();
 			$table->string("latitude",255)->nullable();
 			$table->string("title",255)->nullable();
+			$table->string("requestFormLink",255)->nullable();
 			$table->string("slogan",255)->nullable();
 			$table->string("ogimages",255)->nullable();
+			$table->string("logo",200)->nullable();
 			$table->text("description")->nullable();
 			$table->string("keywords",255)->nullable();
 			$table->string("facebook",255)->nullable();
 			$table->string("twitter",255)->nullable();
 			$table->string("pinteres",255)->nullable();
 			$table->string("linkedin",255)->nullable();
-			$table->string("googleplus",255)->nullable();
+			$table->string("instagram",255)->nullable();
 			$table->string("hostname",255)->nullable();
 			$table->string("username",255)->nullable();
 			$table->string("pasword",255)->nullable();

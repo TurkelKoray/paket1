@@ -37,7 +37,7 @@ class MenuRepository extends AbstractRepository implements RepositoryInterface
 
 	public function getBottomMenu()
 	{
-        $result = $this->getQueryInstance()->whereIn("type", ["hs","us"])->orderBy("sira","asc")->limit(3)->get()->load("submenus");
+        $result = $this->getQueryInstance()->whereIn("type", ["us"])->orderBy("sira","asc")->limit(3)->get()->load("submenus");
         return $result ? $result : null;
 	}
 

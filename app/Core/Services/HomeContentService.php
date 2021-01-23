@@ -20,14 +20,14 @@ class HomeContentService
     {
         if (!empty($data["img"])) {
             $imgName = $this->imageService->singleImageUpload("uploads/home", $data["img"], 600, 400);
-            $createData["img"] = $imgName;
         }
 
         $createData = [
             "title" => $data["title"],
             "description" => $data["description"],
             "url" => $data["url"],
-            "type" => $data["type"]
+            "type" => $data["type"],
+            "img" => $imgName
         ];
         $this->homeContent->newModelQuery()->create($createData);
     }

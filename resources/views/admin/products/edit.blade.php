@@ -14,85 +14,104 @@
                     <div class="section row mbn">
                         {{ csrf_field() }}
 
-                        <div class="col-md-12 mb15 ph10">
-                            <div class="section">
-                                <label class="field select">
-                                    <select id="category_id" name="category_id">
-                                        @foreach($categoryProducts as $categoryProduct)
-                                            <option @php if($categoryProduct->id==$product["category_id"]){ echo 'selected'; } @endphp value="{{ $categoryProduct->id }}">{{ $categoryProduct->name }}</option>
-                                        @endforeach
-                                    </select>
-                                    <i class="arrow"></i>
-                                </label>
+                        <div class="col-md-9">
+                            <div class="col-md-12 mb15 ph10">
+                                <div class="section">
+                                    <label class="field select">
+                                        <select id="category_id" name="category_id">
+                                            @foreach($categoryProducts as $categoryProduct)
+                                                <option @php if($categoryProduct->id==$product["category_id"]){ echo 'selected'; } @endphp value="{{ $categoryProduct->id }}">{{ $categoryProduct->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <i class="arrow"></i>
+                                    </label>
+                                </div>
+                                @if($errors->has("category_id"))
+                                    <div style="margin-top: 5px" class="col-lg-12">
+                                        <div class="alert alert-micro alert-warning alert-dismissable">
+                                            {{ $errors->first("category_id") }}
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
-                            @if($errors->has("category_id"))
-                                <div style="margin-top: 5px" class="col-lg-12">
-                                    <div class="alert alert-micro alert-warning alert-dismissable">
-                                        {{ $errors->first("category_id") }}
+
+                            <div class="col-md-6 mb15 ph10">
+                                <label for="name" class="field prepend-icon mb5">Ürün Adı </label>
+                                <input name="name" type="text" class="gui-input form-control" value="{{ $product["name"] }}" placeholder="Ürün Adı">
+                                @if($errors->has("name"))
+                                    <div style="margin-top: 5px" class="col-lg-12">
+                                        <div class="alert alert-micro alert-warning alert-dismissable">
+                                            {{ $errors->first("name") }}
+                                        </div>
                                     </div>
+                                @endif
+                            </div>
+
+                            <div class="col-md-6 mb15 ph10">
+                                <label for="slug" class="field prepend-icon mb5"> Url  </label>
+                                <input name="slug" type="text" class="gui-input form-control" value="{{ $product["slug"] }}" placeholder="Url">
+                                @if($errors->has("slug"))
+                                    <div style="margin-top: 5px" class="col-lg-12">
+                                        <div class="alert alert-micro alert-warning alert-dismissable">
+                                            {{ $errors->first("slug") }}
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
+
+                            <div class="col-md-12 mb15 ph10">
+                                <label for="title" class="field prepend-icon mb5"> Başlık </label>
+                                <input name="title" type="text" class="gui-input form-control" value="{{  $product["title"] }}" placeholder="Başlık">
+                                @if($errors->has("title"))
+                                    <div style="margin-top: 5px" class="col-lg-12">
+                                        <div class="alert alert-micro alert-warning alert-dismissable">
+                                            {{ $errors->first("title") }}
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
+
+                            <div class="col-md-6 mb15 ph10">
+                                <label for="price" class="field prepend-icon mb5"> Ürün Fiyatı </label>
+                                <input name="price" type="text" class="gui-input form-control" value="{{ $product["price"] }}" placeholder="Fiyat">
+                                @if($errors->has("price"))
+                                    <div style="margin-top: 5px" class="col-lg-12">
+                                        <div class="alert alert-micro alert-warning alert-dismissable">
+                                            {{ $errors->first("price") }}
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
+
+                            <div class="col-md-4 mb15 ph10">
+                                <label for="stock" class="field prepend-icon mb5"> Stok Adeti </label>
+                                <input name="stock" type="text" class="gui-input form-control" value="{{ $product["stock"] }}" placeholder="Stok Adeti">
+                                @if($errors->has("stock"))
+                                    <div style="margin-top: 5px" class="col-lg-12">
+                                        <div class="alert alert-micro alert-warning alert-dismissable">
+                                            {{ $errors->first("stock") }}
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
+
+                            <div class="col-md-2 mb15 ph10">
+                                <label for="stock" class="field prepend-icon mb5"> Anasayfada Göster</label>
+                                <div class="checkbox-custom fill checkbox-primary mb5">
+                                    <input type="hidden" name="headline" value="0">
+                                    <input @if($product["state"]==1) checked @endif type="checkbox" name="state"  id="state"  value="1">
+                                    <label for="state"> </label>
                                 </div>
-                            @endif
+                            </div>
+
                         </div>
 
-                        <div class="col-md-6 mb15 ph10">
-                            <label for="name" class="field prepend-icon mb5">Ürün Adı </label>
-                            <input name="name" type="text" class="gui-input form-control" value="{{ $product["name"] }}" placeholder="Ürün Adı">
-                            @if($errors->has("name"))
-                                <div style="margin-top: 5px" class="col-lg-12">
-                                    <div class="alert alert-micro alert-warning alert-dismissable">
-                                        {{ $errors->first("name") }}
-                                    </div>
-                                </div>
-                            @endif
+
+                        <div class="col-md-3">
+                            <img  height="230" src="{{ asset("uploads/products/".$product["img"])  }}">
                         </div>
 
-                        <div class="col-md-6 mb15 ph10">
-                            <label for="slug" class="field prepend-icon mb5"> Url  </label>
-                            <input name="slug" type="text" class="gui-input form-control" value="{{ $product["slug"] }}" placeholder="Url">
-                            @if($errors->has("slug"))
-                                <div style="margin-top: 5px" class="col-lg-12">
-                                    <div class="alert alert-micro alert-warning alert-dismissable">
-                                        {{ $errors->first("slug") }}
-                                    </div>
-                                </div>
-                            @endif
-                        </div>
 
-                        <div class="col-md-8 mb15 ph10">
-                            <label for="price" class="field prepend-icon mb5"> Ürün Fiyatı </label>
-                            <input name="price" type="text" class="gui-input form-control" value="{{ $product["price"] }}" placeholder="Fiyat">
-                            @if($errors->has("price"))
-                                <div style="margin-top: 5px" class="col-lg-12">
-                                    <div class="alert alert-micro alert-warning alert-dismissable">
-                                        {{ $errors->first("price") }}
-                                    </div>
-                                </div>
-                            @endif
-                        </div>
-
-                        <div class="col-md-4 mb15 ph10">
-                            <label for="stock" class="field prepend-icon mb5"> Stok Adeti </label>
-                            <input name="stock" type="text" class="gui-input form-control" value="{{ $product["stock"] }}" placeholder="Stok Adeti">
-                            @if($errors->has("stock"))
-                                <div style="margin-top: 5px" class="col-lg-12">
-                                    <div class="alert alert-micro alert-warning alert-dismissable">
-                                        {{ $errors->first("stock") }}
-                                    </div>
-                                </div>
-                            @endif
-                        </div>
-
-                        <div  class="col-md-12 mb15 ph10">
-                            <label for="description" class="field prepend-icon mb5"> Ürün Başlığı </label>
-                            <textarea class="gui-textarea form-control ckeditor" id="title" name="title" placeholder="Ürün Başlığı">{{ $product["title"] }}</textarea>
-                            @if($errors->has("title"))
-                                <div style="margin-top: 5px" class="col-lg-12">
-                                    <div class="alert alert-micro alert-warning alert-dismissable">
-                                        {{ $errors->first("title") }}
-                                    </div>
-                                </div>
-                            @endif
-                        </div>
 
                         <div  class="col-md-12 mb15 ph10">
                             <label for="description" class="field prepend-icon mb5"> Kısa Açıklama </label>

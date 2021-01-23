@@ -29,7 +29,7 @@
                         <td> <img width="75" src="{{ asset("uploads/products/".$product->img) }}" /> </td>
                         <td class="sirala handle">{{ $product->name }}</td>
                         <td>
-                            {{ $product->title }}
+                            {!! $product->title !!}
                         </td>
                         <td>
                             <a class="btn btn-info" href="/admin/products/gallery/{{ $product->id }}"> Galeri </a>

@@ -18,12 +18,12 @@
 
         public function getProducts()
         {
-            return $this->getQueryInstance()->get();
+            return $this->getQueryInstance()->where("deleted",0)->orderByDesc("id")->get();
         }
 
         public function getCategoryProducts($categoryId,$offset,$limit)
         {
-            return $this->getQueryInstance()->where("category_id",$categoryId)->offset($offset)->limit($limit)->get();
+            return $this->getQueryInstance()->where([ ["category_id",$categoryId] , ["deleted",0] ])->offset($offset)->limit($limit)->get();
         }
 
         public function getTotalCategoryProductsCount($categoryId)
@@ -33,7 +33,7 @@
 
         public function homeShowProducts()
         {
-            return $this->getQueryInstance()->where("state",1)->limit(12)->get();
+            return $this->getQueryInstance()->where([ ["state",1] , ["deleted",0]])->limit(12)->get();
         }
 
         public function product($productSlug)
@@ -43,7 +43,16 @@
 
         public function otherProducts($categoryId)
         {
-            return $this->getQueryInstance()->where("category_id",$categoryId)->limit(6)->get();
+            return $this->getQueryInstance()->where([ ["category_id",$categoryId] ,["deleted",0]])->limit(6)->get();
+        }
+
+        public function search($query)
+        {
+            $result = $this->getQueryInstance()->where("name","like","%".$query["q"]."%")
+                ->orWhere("title","like","%".$query["q"]."%")
+                ->orWhere("description","like","%".$query["q"]."%")
+                ->get();
+            return  $result;
         }
 
     }

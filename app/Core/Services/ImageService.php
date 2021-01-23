@@ -8,7 +8,7 @@
     {
 
         private $image;
-        const WIDTH = 1200;
+        const WIDTH = 1280;
         const HEIGHT = null;
 
 
@@ -42,6 +42,15 @@
                 $constraint->aspectRatio();
             })->save($filePath . "/" . $name);
             return $name;
+        }
+
+        public function thumbImageUpload( $filePath , $image,$lastName , $width = self::WIDTH , $height = self::HEIGHT)
+        {
+            $source         = $image->getRealPath();
+            Image::make($source)->resize($width , $height , function($constraint){
+                $constraint->aspectRatio();
+            })->save($filePath . "/" . $lastName);
+            return $lastName;
         }
 
         public function imageAdvertUpload($path, $images)

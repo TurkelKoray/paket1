@@ -13,29 +13,26 @@ class SocialMediaPutRequest extends AbstractFormRequest
                 "present",
                 "nullable",
                 "max:255",
-                "min:3"
             ],
             "twitter" => [
                 "present",
                 "nullable",
                 "string",
                 "max:255",
-                "min:3"
             ],
-            "googleplus" => [
+            "instagram" => [
                 "present",
                 "nullable",
                 "string",
                 "max:255",
-                "min:3"
             ],
             "pinteres" => [
                 "present",
                 "nullable",
                 "string",
                 "max:255",
-                "min:3"
-            ], "linkedin" => [
+            ],
+            "linkedin" => [
                 "string",
                 "present",
                 "nullable"

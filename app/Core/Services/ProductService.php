@@ -32,11 +32,13 @@
                 "description" => $data["description"],
                 "content"     => $data["content"],
                 "price"       => $data["price"],
-                "stock"       => $data["stock"]
+                "stock"       => $data["stock"],
+                "state"       => $data["state"]
             ];
 
             if (!empty($data["img"])) {
-                $imgName           = $this->imageService->singleImageUpload("uploads/products", $data["img"], 600, 400);
+                $imgName                = $this->imageService->singleImageUpload("uploads/products", $data["img"], 600, 400);
+                $this->imageService->thumbImageUpload("uploads/products/thumb/",$data["img"], $imgName, 300, 200);
                 $createData["img"] = $imgName;
             }
 
@@ -54,6 +56,7 @@
             $product['content']     = $data["content"];
             $product['price']       = $data["price"];
             $product['stock']       = $data["stock"];
+            $product['state']       = $data["state"];
 
             if (!empty($data["img"])) {
                 if (!empty($product['img'] )){
@@ -62,7 +65,8 @@
                     }
                 }
 
-                $imgName = $this->imageService->singleImageUpload("uploads/products", $data["img"],1920);
+                $imgName = $this->imageService->singleImageUpload("uploads/products", $data["img"],600,400);
+                $this->imageService->thumbImageUpload("uploads/products/thumb/",$data["img"], $imgName, null, 180);
                 $product['img'] = $imgName;
             }
             $product->save();

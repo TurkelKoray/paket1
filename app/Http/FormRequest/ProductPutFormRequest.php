@@ -57,7 +57,7 @@
                     "required",
                     "integer"
                 ],
-                "breadcrumb" => [
+                "state" => [
                     "present",
                     Rule::in([0, 1])
                 ]

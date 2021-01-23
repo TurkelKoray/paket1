@@ -105,10 +105,10 @@
                     type: "GET"
                 }).done(function(data) {
                     satirsayfa.remove();
-                    swal("SİLİNDİ!", data, "success");
+                    swal(data.title, data.content, data.type);
                     // setInterval(function(){ location.reload(); }, 3000);
                 }).error(function(data) {
-                    swal("SİLİNMEDİ !", data.icerik, "error");
+                    swal(data.title, data.content, data.type);
                 });
             });
 

@@ -61,7 +61,7 @@
                             @endif
                         </div>
 
-                        <div class="col-md-12 mb15 ph10">
+                        <div class="col-md-12 mb15 ph10 none d-none">
                             <label for="footerdesc" class="field prepend-icon mb5"> Anasayfa Video (İframe Kodu)  </label>
                             <input name="footerdesc" type="text" class="gui-input form-control" value="{{ $contacts->footerdesc }}" placeholder="Anasayfa Video (İframe Kodu) ">
                             @if($errors->has("footerdesc"))
@@ -93,35 +93,7 @@
 @endsection
 
 @section('topbar')
-    <header id="topbar" class="ph10">
-        <div class="topbar-left">
-            <ul class="nav nav-list nav-list-topbar pull-left">
-                <li>
-                    <a href="/admin/settings/index">İletişim Ayarları</a>
-                </li>
-                <li class="active">
-                    <a href="/admin/settings/maps">Harita Ayarları</a>
-                </li>
-                <li>
-                    <a href="/admin/settings/seo">Seo Ayarları</a>
-                </li>
-                <li>
-                    <a href="/admin/settings/socialmedia">Sosyal Medya</a>
-                </li>
-                <li>
-                    <a href="/admin/settings/ogimages">Site Ana Görseli</a>
-                </li>
-            </ul>
-        </div>
-        <div style="display: none;" class="topbar-right hidden-xs hidden-sm">
-            <a href="#" class="btn btn-default btn-sm light fw600 ml10 mt5">
-                <span class="fa fa-anchor pr5"></span> Button Link </a>
-            <a href="#" class="btn btn-default btn-sm light fw600 ml10 mt5">
-                <span class="fa fa-bullseye pr5"></span> Button Link </a>
-            <a href="#" class="btn btn-default btn-sm light fw600 ml10 mt5">
-                <span class="fa fa-external-link pr5"></span> Button Link </a>
-        </div>
-    </header>
+    @include("admin.settings.topbar")
 
 @endsection
 

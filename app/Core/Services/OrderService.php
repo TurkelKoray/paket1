@@ -12,6 +12,8 @@
             $this->orders = $orders;
         }
 
+        /*  önyüz işlemleri başlamgıç   */
+
         public function create(array $data)
         {
             $createData = [
@@ -42,4 +44,25 @@
             $order = $this->orders->newModelQuery()->find($id);
             $order->delete();
         }
+
+        /*  önyüz işlemleri bitiş   */
+        /*  admin işlemleri başlangıç   */
+        public function success($orderId)
+        {
+            $order = $this->orders->find($orderId);
+            $order->state = 1;
+            $order->save();
+        }
+
+        public function cancel($orderId)
+        {
+            $order = $this->orders->find($orderId);
+            $order->state = 3;
+            $order->save();
+        }
+
+
+        /*  admin işlemleri bitiş   */
+
+
     }

@@ -40,6 +40,10 @@ class SettingsPutFormRequest extends AbstractFormRequest
                 "string",
                 "present",
                 "nullable"
+            ], "request_form_link" => [
+                "string",
+                "present",
+                "nullable"
             ]
         ];
     }

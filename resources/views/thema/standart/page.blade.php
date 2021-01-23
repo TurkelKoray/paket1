@@ -36,7 +36,7 @@
     <div class="content">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-8 col-md-push-4">
                     <div class="content-in">
                         <h3 style="margin-bottom: 15px">{{ $menu->name }}</h3>
                         <div class="content-text">
@@ -48,6 +48,9 @@
                         </div>
 
                     </div>
+                </div>
+                <div class="col-md-4 col-md-pull-8">
+                    @include("include.sideMenuSecond")
                 </div>
                 <div class="clearfix"></div>
             </div>

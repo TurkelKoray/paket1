@@ -8,7 +8,7 @@
 @section('content')
 
     <div class="panel-heading">
-        <span class="panel-title hidden-xs"> Anasayfa İçerik Ekleme </span>
+        <span class="panel-title hidden-xs">Bizden Haberler  Ekleme </span>
     </div>
 
     <form id="form" action="/admin/homecontent/store" method="post" enctype="multipart/form-data">
@@ -48,11 +48,10 @@
 
                         <div class="col-md-12 mb15 ph10">
                             <label for="text2" class="field prepend-icon mb5"> Açıklama </label>
-                            <textarea class="gui-textarea form-control" id="description" name="description" placeholder="Açıklama"></textarea>
-
+                            <textarea class="gui-textarea form-control ckeditor" id="description" name="description" placeholder="Açıklama"></textarea>
                         </div>
 
-                        <div class="col-md-6 mb15 ph10">
+                        <div class="col-md-12 mb15 ph10">
                             <label for="text1" class="field prepend-icon mb5">  Görsel </label>
                             <label class="field prepend-icon append-button file">
                                 <span class="button btn-primary">Resim Seç</span>
@@ -73,7 +72,7 @@
 
                         <input type="hidden" name="img" value="">
 
-                        <div class="col-md-6 mb15 ph10">
+                        <div class="col-md-6 mb15 ph10 none">
                             <label for="text1" class="field prepend-icon mb5"> Menu Tipi  </label>
                             <div class="section">
                                 <label class="field select">
@@ -106,18 +105,7 @@
 @endsection
 
 @section('topbar')
-    <header id="topbar" class="ph10">
-        <div class="topbar-left">
-            <ul class="nav nav-list nav-list-topbar pull-left">
-                <li>
-                    <a href="/admin/homecontent/index">Anasayfa İçerik Listesi</a>
-                </li>
-                <li class="active">
-                    <a href="/admin/homecontent/create">Yeni Anasayfa İçerik</a>
-                </li>
-            </ul>
-        </div>
-    </header>
+    @include("admin.homecontent.topbarmenu")
 @endsection
 
 @section('js')

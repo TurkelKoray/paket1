@@ -172,17 +172,16 @@
                     buttonsStyling: false
                 }, function () {
 
+
                     $.ajax({
                         url: "/admin/sliders/delete/"+id,
                         type: "GET"
                     }).done(function(data) {
-
                         swal(data.title, data.content, data.type);
-
-                        yenile(1500);
+                         yenile(2000);
 
                     }).error(function(data) {
-                        swal(data.title, data.icerik, "error");
+                        swal(data.title, data.content, "error");
                     });
                 });
 

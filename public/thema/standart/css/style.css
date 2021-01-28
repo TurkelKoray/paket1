@@ -318,10 +318,12 @@ a.navbar-brand{
     position:relative;
     background-position:center 0;
     background-repeat:no-repeat;
-    height:700px;
+    height:500px;
     border-bottom-left-radius:15px;
     border-bottom-right-radius:15px;
+    /*max-width:1200px;*/
     max-width:1600px;
+    /*max-width:100%;*/
     margin:0 auto;
 }
 .slide-content{

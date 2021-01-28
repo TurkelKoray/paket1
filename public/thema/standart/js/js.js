@@ -11,7 +11,7 @@ $(document).ready(function () {
 });
 function manuelFuncs() {
     $("a").attr("ontouchstart", "true");
-    responsiveHeighter();
+  /*  responsiveHeighter();*/
     addActive();
     addActive(".side-menu > ul > li", 0, ".side-menu"); addActive(".itab", 0, ".itabs", 1);
     focusZoom();

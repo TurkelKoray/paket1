@@ -87,7 +87,7 @@
 
             Route::post('/update/{id}', 'HomeContentController@update')->middleware("demo");
 
-            Route::get('/delete/{id}', 'HomeContentController@delete')->middleware("demo");
+            Route::get('/delete/{id}', 'HomeContentController@delete')->middleware("demotoastr");
 
             Route::get('/menuSirala/{p}', 'HomeContentController@orders');
 
@@ -106,9 +106,9 @@
 
 			Route::post('/update/{id}', 'MenuController@update')->middleware("demo");
 
-			Route::get('/delete/{id}', 'MenuController@delete')->middleware("demo");
+			Route::get('/delete/{id}', 'MenuController@delete')->middleware("demotoastr");
 
-			Route::get('/destroy/{id}', 'MenuController@destroy')->middleware("demo");
+			Route::get('/destroy/{id}', 'MenuController@destroy')->middleware("demotoastr");
 
 			Route::get('/resimsil/{id}', 'MenuController@resimsil')->middleware("demo");
 
@@ -120,9 +120,9 @@
 
 			Route::get('/gallerySirala/{p}', 'MenuController@gallerySirala');
 
-			Route::get('/gallerydelete/{id}', 'MenuController@galleryDelete')->middleware("demo");
+			Route::get('/gallerydelete/{id}', 'MenuController@galleryDelete')->middleware("demotoastr");
 
-			Route::get('/gallerydestroy/{id}', 'MenuController@galleryDestroy')->middleware("demo");
+			Route::get('/gallerydestroy/{id}', 'MenuController@galleryDestroy')->middleware("demotoastr");
 		});
 
 		Route::group(['prefix' => 'submenus'], function () {
@@ -139,7 +139,7 @@
 
 			Route::get('/delete/{id}', 'SubmenuController@delete')->middleware("demo");
 
-			Route::get('/destroy/{id}', 'SubmenuController@destroy')->middleware("demo");
+			Route::get('/destroy/{id}', 'SubmenuController@destroy')->middleware("demotoastr");
 
 			Route::get('/sirala/{p}', 'SubmenuController@sirala');
 
@@ -164,9 +164,9 @@
 
             Route::post('/update/{id}', 'ProductController@update')->middleware("demo");
 
-            Route::get('/delete/{id}', 'ProductController@delete')->middleware("demo");
+            Route::get('/delete/{id}', 'ProductController@delete')->middleware("demotoastr");
 
-            Route::get('/destroy/{id}', 'ProductController@destroy')->middleware("demo");
+            Route::get('/destroy/{id}', 'ProductController@destroy')->middleware("demotoastr");
 
             Route::get('/sirala/{p}', 'ProductController@sirala');
 
@@ -176,7 +176,7 @@
 
             Route::get('/gallerySirala/{p}', 'ProductController@gallerySirala');
 
-            Route::get('/gallery-delete/{id}', 'ProductController@galleryDelete')->middleware("demo");
+            Route::get('/gallery-delete/{id}', 'ProductController@galleryDelete')->middleware("demotoastr");
         });
 
         Route::group(['prefix' => 'orders'], function () {
@@ -207,9 +207,9 @@
 
 			Route::post('/update/{id}', 'SliderController@update')->middleware("demo");
 
-			Route::get('/delete/{id}', 'SliderController@delete')->middleware("demo");
+			Route::get('/delete/{id}', 'SliderController@delete')->middleware("demotoastr");
 
-			Route::get('/destroy/{id}', 'SliderController@destroy')->middleware("demo");
+			Route::get('/destroy/{id}', 'SliderController@destroy')->middleware("demotoastr");
 
 			Route::get('/sliderSirala/{p}', 'SliderController@sliderSirala');
 		});
@@ -238,9 +238,9 @@
 
 			Route::get('/old', 'ContactController@old');
 
-			Route::get('/destroy/{id}', 'ContactController@destroy')->middleware("demo");
+			Route::get('/destroy/{id}', 'ContactController@destroy')->middleware("demotoastr");
 
-			Route::get('/delete/{id}', 'ContactController@delete')->middleware("demo");
+			Route::get('/delete/{id}', 'ContactController@delete')->middleware("demotoastr");
 		});
 
 

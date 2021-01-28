@@ -46,8 +46,8 @@ class SliderController extends Controller
     {
        $inputData =  $sliderPostFormRequest->toArray();
        foreach ($inputData["img"] as $img) {
-           $finishImageName = $imageService->multiUpload($img, "uploads/slider", "img",1600,700);
-           $imageService->thumbImageUpload("uploads/slider/thumb",$img,$finishImageName,768,448);
+           $finishImageName = $imageService->multiUpload($img, "uploads/slider", "img",1200);
+           $imageService->thumbImageUpload("uploads/slider/thumb",$img,$finishImageName,768);
            $inputData["img"] = $finishImageName;
            $sliderService->create($inputData);
        }
@@ -90,6 +90,7 @@ class SliderController extends Controller
         $inputData =  $sliderPutFormRequest->toArray();
         if (!empty($inputData["img"])){
             $finishImageName = $imageService->singleImageUpload("uploads/slider",$inputData["img"],1920,500);
+            $imageService->thumbImageUpload("uploads/slider/thumb",$inputData["img"],$finishImageName,768,350);
             $inputData["img"] = $finishImageName;
             $sliderService->update($id,$inputData);
         }
